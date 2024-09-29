@@ -4,12 +4,10 @@ const taskList = document.getElementById("task-list");
 
 let tasksArray = JSON.parse(localStorage.getItem("tasksArray")) || [];
 
-// Save tasks to localStorage
 const storeTasks = () => {
   localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
 };
 
-// Render the tasks to the DOM
 const displayTasks = () => {
   taskList.innerHTML = ""; // Clear the current list
   tasksArray.forEach((taskObj, idx) => {
@@ -34,7 +32,7 @@ addTaskBtn.addEventListener("click", () => {
     tasksArray.push({ text: taskText, done: false });
     storeTasks();
     displayTasks();
-    taskInput.value = ""; // Clear the input field
+    taskInput.value = ""; 
   }
 });
 
@@ -50,4 +48,4 @@ const removeTask = (idx) => {
   displayTasks();
 };
 
-displayTasks(); // Initial rendering of tasks
+displayTasks(); 
